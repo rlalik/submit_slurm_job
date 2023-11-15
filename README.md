@@ -124,5 +124,8 @@ Use pip, e.g. (use `--user` for no system-wide installations):
 ```bash
 git clone https://github.com/rlalik/submit_slurm_job
 cd submit_slurm_job
-pip install . [--user]
+# for system wide
+python -m pip install .
+# for local installation only
+python -m pip install . --user--break-system-packages
 ```

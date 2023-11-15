@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "submit_slurm_job"
+version = "0.0.1"
+authors = [
+  { name="Rafał Lalik", email="rafal.lalik@uj.edu.pl" },
+]
+description = "A small wrapper for submitting slurm jobs"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[tool.setuptools]
+script-files=['submit_slurm/submit_slurm.py']
+
+[project.urls]
+"Homepage" = "https://github.com/rlalik/submit_slurm_job"
+"Bug Tracker" = "https://github.com/rlalik/submit_slurm_job/issues"
