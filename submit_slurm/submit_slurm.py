@@ -169,14 +169,16 @@ def transfer_payload_list(payload_list: tuple, workdir: str):
 
 
 def transfer_payload_from_string(payload: str):
-    return [p for p in payload.split(",")]
+    return [p.strip() for p in payload.split(",")]
 
 
 def transfer_payload_from_file(payload_file: str):
     paylod_from_file = []
     with open(payload_file) as f:
         for payload in f:
-            paylod_from_file.append(payload)
+            _payload = payload.strip()
+            if os.path.exists(_payload):
+                paylod_from_file.append(_payload)
     return paylod_from_file
 
 
@@ -283,7 +285,7 @@ if __name__ == "__main__":
                 env=env,
             )
             (out, err) = proc.communicate()
-            print(out, err)
+
             if out[0:19] == b"Submitted batch job":
                 status = out[20:-1].decode()
             else:
